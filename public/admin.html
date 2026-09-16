@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#071524">
+  <title>Administration — Quinté+ Live</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="/" aria-label="Quinté Plus Live - Accueil">
+    <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 100 100"><path d="M19 76c16-2 28-10 34-22-3-7-3-15 1-23 4-8 11-14 20-17l8 4-5 6 11 5-4 8-10-1c-2 5-3 9-1 13 3 7 10 11 18 12-7 8-17 12-29 11-9-1-16-4-22-8-6 6-13 10-21 12z"/><path d="M52 31c-8 0-15-4-20-10 9-2 18 1 24 7"/><path d="M58 21c-1-7 1-12 5-17 4 6 5 12 2 18"/><path d="M77 50l9-4"/></svg></span>
+    <span class="brand-name"><strong>QUINTÉ <b>+</b></strong><em>LIVE</em></span>
+  </a>
+  <a href="/" class="back-link">← Retour au site</a>
+</header>
+<main class="container">
+  <section class="hero"><div><span class="badge">ADMINISTRATION</span><h1>Mes pronostics</h1><p>Publie ou remplace ton pronostic du jour.</p></div></section>
+  <section class="card">
+    <div class="section-head"><h2>🔐 Accès administrateur</h2></div>
+    <label>Mot de passe administrateur<input id="password" type="password" autocomplete="current-password" placeholder="Mot de passe"></label>
+  </section>
+  <section class="card">
+    <div class="section-head"><h2>🎯 Publier / remplacer le pronostic du jour</h2></div>
+    <p class="muted">Chaque nouvelle publication remplace automatiquement le précédent pronostic actif.</p>
+    <label>Titre<input id="title" placeholder="Ex. Mon pronostic du jour"></label>
+    <label>Pronostic<input id="selection" placeholder="Ex. 9 - 7 - 10 - 6 - 14"></label>
+    <label>Commentaire (facultatif)<textarea id="comment" rows="3" placeholder="Ton analyse ou tes indications"></textarea></label>
+    <button id="add">Publier / remplacer le pronostic</button>
+    <p id="message" class="admin-message"></p>
+  </section>
+  <section class="card">
+    <div class="section-head"><h2>📋 Pronostic actuellement publié</h2></div>
+    <div id="list"></div>
+  </section>
+</main>
+<script>
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]));
+async function load(){try{const r=await fetch('/api/pronostics',{cache:'no-store'});const d=await r.json();const a=d.pronostics||[];$('#list').innerHTML=a.map(x=>`<div class="admin-item"><div><b>${esc(x.title)}</b><div class="selection">${esc(x.selection)}</div><small>${x.comment?esc(x.comment):''}</small></div><button class="danger" data-id="${esc(x.id)}">Supprimer</button></div>`).join('')||'<div class="empty">Aucun pronostic actif.</div>';document.querySelectorAll('[data-id]').forEach(b=>b.onclick=()=>del(b.dataset.id));}catch(e){$('#message').textContent='Impossible de charger le pronostic.';}}
+async function del(id){const r=await fetch('/api/pronostics/'+encodeURIComponent(id),{method:'DELETE',headers:{'x-admin-password':$('#password').value}});const d=await r.json();$('#message').textContent=d.error||'Pronostic supprimé.';load();}
+$('#add').onclick=async()=>{const r=await fetch('/api/pronostics',{method:'POST',headers:{'Content-Type':'application/json','x-admin-password':$('#password').value},body:JSON.stringify({title:$('#title').value,selection:$('#selection').value,comment:$('#comment').value})});const d=await r.json();$('#message').textContent=d.error||'Pronostic publié / remplacé !';if(r.ok){$('#title').value='';$('#selection').value='';$('#comment').value='';load();}};
+load();
+</script>
+</body>
+</html>

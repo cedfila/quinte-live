@@ -3,64 +3,85 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#111827">
-  <meta name="description" content="Résultat du Quinté+ en direct, arrivée et rapports.">
+  <meta name="theme-color" content="#071524">
+  <meta name="description" content="Quinté+ du jour, annonce de course, arrivée officielle et rapports en direct.">
   <title>Quinté+ Live — Résultat en direct</title>
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-  <header class="topbar">
-    <div class="brand"><span class="horse">🏇</span> Quinté+ <b>LIVE</b></div>
-    <div id="clock" class="clock">--:--:--</div>
-  </header>
+<header class="topbar topbar-image" role="banner">
+  <a class="brand-accessible" href="/" aria-label="Quinté Plus Live - Accueil">Quinté+ Live</a>
+  <div id="clock" class="clock">--:--:--</div>
+</header>
+<nav class="nav-bar" aria-label="Navigation principale">
+  <a class="active" href="/" aria-current="page"><span class="nav-icon">⌂</span><span>Accueil</span></a>
+  <a href="#resultats"><span class="nav-icon">♜</span><span>Résultats</span></a>
+  <a href="#pronostics-section"><span class="nav-icon">▥</span><span>Pronostics</span></a>
+  <a href="#soutien"><span class="nav-icon">♥</span><span>Soutenir le site</span></a>
+  <a href="/admin.html"><span class="nav-icon">⚙</span><span>Administration</span></a>
+</nav>
 
-  <main class="container">
-    <section class="hero">
-      <div>
-        <span class="badge">RÉSULTAT DU JOUR</span>
-        <h1 id="title">Quinté+ en direct</h1>
-        <p id="meta">Chargement des données…</p>
-      </div>
-      <div class="live"><i></i> AUTOMATIQUE</div>
-    </section>
+<main class="container">
+  <section class="card">
+    <div class="section-head"><div><h2>🕘 Résultats des dernières 48 h</h2><p class="muted">Les anciens résultats sont conservés automatiquement.</p></div></div>
+    <div id="history" class="history"><div class="empty">Chargement de l’historique…</div></div>
+  </section>
 
-    <section class="card status-card">
-      <div>
-        <div class="label">État</div>
-        <div id="status" class="status">Recherche du résultat…</div>
-      </div>
-      <div class="update">
-        <span>Dernière mise à jour</span>
-        <strong id="updated">—</strong>
-      </div>
-    </section>
+  <section class="hero">
+    <div class="hero-copy">
+      <span id="modeBadge" class="badge">COURSE DU JOUR</span>
+      <h1 id="title">Quinté+ en direct</h1>
+      <p id="meta">Chargement des données…</p>
+    </div>
+    <div class="live"><i></i> AUTOMATIQUE</div>
+  </section>
 
-    <section class="card">
-      <div class="section-head">
-        <h2>🏆 Arrivée</h2>
-        <span id="course" class="pill">—</span>
-      </div>
-      <div id="arrival" class="arrival">
-        <div class="empty">En attente de l’arrivée officielle…</div>
-      </div>
-    </section>
+  <section class="card status-card">
+    <div><div class="label">État</div><div id="status" class="status">Recherche de la course…</div></div>
+    <div class="update"><span>Dernière mise à jour</span><strong id="updated">—</strong></div>
+  </section>
 
-    <section class="card">
-      <div class="section-head">
-        <h2>💶 Rapports</h2>
-      </div>
-      <div id="reports" class="reports">
-        <div class="empty">Les rapports apparaîtront dès leur publication.</div>
-      </div>
-    </section>
+  <section id="raceAnnouncement" class="card announcement">
+    <div class="section-head">
+      <div><h2>📣 Annonce de la course</h2><p id="mainCardText">L’annonce reste affichée automatiquement jusqu’à la publication de l’arrivée officielle.</p></div>
+      <span id="course" class="pill">—</span>
+    </div>
+    <div id="details" class="details"><div class="empty">Chargement des informations…</div></div>
+  </section>
 
-    <section class="notice">
-      <b>Actualisation automatique</b>
-      <span>La page vérifie automatiquement les données PMU toutes les 30 secondes. Les résultats sont fournis par le flux public turfinfo.api.pmu.fr.</span>
-    </section>
-  </main>
+  <section id="participantsCard" class="card">
+    <div class="section-head"><div><h2>🐎 Partants & cotes</h2><p class="muted">Informations disponibles sur le flux PMU.</p></div></div>
+    <div id="participants" class="participants"><div class="empty">Les partants seront affichés dès leur disponibilité.</div></div>
+  </section>
 
-  <footer>Quinté+ Live • Source : PMU / turfinfo.api.pmu.fr • Jouez avec modération.</footer>
-  <script src="/app.js"></script>
+  <section id="resultats" class="card result-card">
+    <div class="section-head"><div><h2 id="mainCardTitle">🏆 Arrivée officielle</h2><p id="mainCardText2" class="muted">L’arrivée officielle remplacera automatiquement l’annonce.</p></div></div>
+    <div id="arrival" class="arrival"><div class="empty">En attente de l’arrivée officielle…</div></div>
+  </section>
+
+  <section class="card">
+    <div class="section-head"><div><h2>💶 Rapports</h2><p class="muted">Rapports officiels dès leur publication.</p></div></div>
+    <div id="reports" class="reports"><div class="empty">Les rapports apparaîtront dès leur publication.</div></div>
+  </section>
+
+
+
+  <section id="pronostics-section" class="card">
+    <div class="section-head">
+      <div><h2>🎯 Mes pronostics</h2><p class="muted">Un seul pronostic actif est affiché. Tu peux le remplacer depuis Administration.</p></div>
+      <a class="admin-link" href="/admin.html">Administration</a>
+    </div>
+    <div id="pronostics" class="pronostics"><div class="empty">Aucun pronostic publié pour le moment.</div></div>
+  </section>
+
+  <section id="soutien" class="support-card">
+    <div><h2>❤️ Soutenir le site</h2><p>Si ce site vous est utile, vous pourrez soutenir son fonctionnement grâce au lien ci-dessous.</p></div>
+    <a id="donationLink" class="donation-btn" href="#" target="_blank" rel="noopener" style="display:none">♥ Faire un don</a>
+  </section>
+
+  <section class="notice"><b>Fonctionnement automatique</b><span id="retention">Conservation automatique des résultats pendant 48 h • bascule quotidienne à 7 h (Indian/Reunion).</span></section>
+</main>
+<footer>Quinté+ Live • Source : PMU / turfinfo.api.pmu.fr • Jouez avec modération.</footer>
+<script src="/app.js"></script>
 </body>
 </html>

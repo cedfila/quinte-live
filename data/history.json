@@ -1,0 +1,167 @@
+[
+  {
+    "date": "2026-09-16",
+    "hippodrome": "",
+    "course": "R1C1",
+    "nomCourse": "PRIX PALLANCHE CONSTRUCTIONS",
+    "heure": "1789559700000",
+    "statut": "Arrivée officielle publiée",
+    "mode": "result",
+    "arrival": [
+      {
+        "number": "9",
+        "name": "JOKER D'OLAINE",
+        "order": 1,
+        "odds": 7.7
+      },
+      {
+        "number": "7",
+        "name": "JAGERBOMB",
+        "order": 2,
+        "odds": 3.3
+      },
+      {
+        "number": "10",
+        "name": "JINGLE LOVER",
+        "order": 3,
+        "odds": 7.2
+      },
+      {
+        "number": "6",
+        "name": "JANDICE STAR",
+        "order": 4,
+        "odds": 114
+      },
+      {
+        "number": "14",
+        "name": "INSTINCT SAINT BAR",
+        "order": 5,
+        "odds": 4.9
+      }
+    ],
+    "participants": [
+      {
+        "number": "1",
+        "name": "IVAN DE L'ERDRE",
+        "order": 7,
+        "odds": 37
+      },
+      {
+        "number": "2",
+        "name": "JET DES PRES",
+        "order": 0,
+        "odds": 19
+      },
+      {
+        "number": "3",
+        "name": "GOLDEN VIKING",
+        "order": 12,
+        "odds": 174
+      },
+      {
+        "number": "4",
+        "name": "JONQUILLE DE MEAT",
+        "order": 9,
+        "odds": 18
+      },
+      {
+        "number": "5",
+        "name": "ISIS DE POULINE",
+        "order": 6,
+        "odds": 31
+      },
+      {
+        "number": "6",
+        "name": "JANDICE STAR",
+        "order": 4,
+        "odds": 114
+      },
+      {
+        "number": "7",
+        "name": "JAGERBOMB",
+        "order": 2,
+        "odds": 3.3
+      },
+      {
+        "number": "8",
+        "name": "GRANTCHESTER",
+        "order": 14,
+        "odds": 186
+      },
+      {
+        "number": "9",
+        "name": "JOKER D'OLAINE",
+        "order": 1,
+        "odds": 7.7
+      },
+      {
+        "number": "10",
+        "name": "JINGLE LOVER",
+        "order": 3,
+        "odds": 7.2
+      },
+      {
+        "number": "11",
+        "name": "INDIGO PIERJI",
+        "order": 10,
+        "odds": 61
+      },
+      {
+        "number": "12",
+        "name": "HEROS D'YVEL",
+        "order": 11,
+        "odds": 128
+      },
+      {
+        "number": "13",
+        "name": "IQUEM D'AMER",
+        "order": 8,
+        "odds": 12
+      },
+      {
+        "number": "14",
+        "name": "INSTINCT SAINT BAR",
+        "order": 5,
+        "odds": 4.9
+      },
+      {
+        "number": "15",
+        "name": "IL VIENT DU LUDE",
+        "order": 13,
+        "odds": 8.9
+      }
+    ],
+    "reports": {
+      "e-Simple Gagnant": 850,
+      "e-Simple Placé": 230,
+      "e-Couplé Gagnant": 970,
+      "e-Couplé Placé": 480,
+      "e-2sur4": 960,
+      "e-Multi en 4": 126000,
+      "e-Multi en 5": 25200,
+      "e-Multi en 6": 8400,
+      "e-Multi en 7": 3600,
+      "e-Tiercé Ordre": 6240,
+      "e-Tiercé Désordre": 1020,
+      "e-Quarté+ Ordre": 203610,
+      "e-Quarté+ Désordre": 18045,
+      "e-Bonus": 435,
+      "e-Quinté+ Ordre": 655200,
+      "e-Quinté+ Désordre": 8400,
+      "e-Bonus 4sur5": 280,
+      "e-Bonus 3": 240
+    },
+    "details": {
+      "distance": 2850,
+      "allocation": "",
+      "discipline": "ATTELE",
+      "terrain": "",
+      "corde": "CORDE_GAUCHE",
+      "nombrePartants": 15
+    },
+    "updatedAt": "2026-09-16T15:12:17.357Z",
+    "source": "PMU / turfinfo.api.pmu.fr",
+    "refreshSeconds": 30,
+    "savedAt": "2026-09-16T14:26:53.619Z"
+  }
+]
